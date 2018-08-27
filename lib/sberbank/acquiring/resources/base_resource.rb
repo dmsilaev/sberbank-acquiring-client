@@ -11,8 +11,8 @@ module Sberbank
       option :connection
 
       def request(path, params)
-        connection.get(path, params) do |req|
-          req.url = path
+        connection.get do |req|
+          req.path = path
           req.params.merge! params.map { |k, v| [camelize(k.to_s), v] }.to_h
         end.env.body
       end

@@ -6,7 +6,7 @@ module Sberbank
     autoload :Client, 'sberbank/acquiring/client'
 
     # # Resources
-    # autoload :RecommendationResource, 'avia_center_plane/resources/recommendation_resource'
+    autoload :OrderResource, 'sberbank/acquiring/resources/order_resource'
     # autoload :FareResource, 'avia_center_plane/resources/fare_resource'
     # autoload :BookResource, 'avia_center_plane/resources/book_resource'
     # autoload :TicketResource, 'avia_center_plane/resources/ticket_resource'

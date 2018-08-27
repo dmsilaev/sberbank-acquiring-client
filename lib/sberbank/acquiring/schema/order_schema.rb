@@ -3,21 +3,23 @@ require_relative 'base_schema'
 module Sberbank
   module Acquiring
     OrderRegisterSchema = Dry::Validation.Schema(BaseSchema) do
-      configure do
-        def email?(value)
-          true
-        end
 
-        def phone?(value)
-          true
-        end
-      end
 
-      required(:session_id).filled(:str?)
-      required(:recommendation_id).filled(:str?)
-      required(:payer_name).filled(:str?)
-      required(:payer_phone).filled(:str?, :phone?)
-      required(:payer_email).filled(:str?, :email?)
+      required(:order_number).filled(:str?)
+      required(:amount).filled(:str?)
+      optional(:currency).filled(:str?)
+      required(:return_url).filled(:str?)
+      optional(:fail_url).filled(:str?)
+      optional(:description).filled(:str?)
+      optional(:language).filled(:str?)
+      optional(:page_view).filled(:str?)
+      optional(:client_id).filled(:str?)
+      optional(:merchant_login).filled(:str?)
+      optional(:json_params).filled(:str?)
+      optional(:session_timeout_secs).filled(:str?)
+      optional(:expiration_date).filled(:str?)
+      optional(:binding_id).filled(:str?)
+      optional(:features).filled(:str?)
     end
   end
 end

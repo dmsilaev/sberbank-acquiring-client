@@ -11,9 +11,9 @@ module Sberbank
       end
 
       def register(params)
-        path = '/avia/fare_conditions.json'
+        path = '/payment/rest/register.do'
 
-        result = OrderSchema.(params)
+        result = OrderRegisterSchema.(params)
         params_validation_error!(result)  if result.failure?
 
         response = request(path, result.output)

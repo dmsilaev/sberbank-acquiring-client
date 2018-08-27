@@ -60,6 +60,9 @@ GEM
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
     hashdiff (0.3.7)
+    httplog (1.1.1)
+      rack (>= 1.0)
+      rainbow (>= 2.0.0)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -70,6 +73,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
+    rack (2.0.5)
+    rainbow (3.0.0)
     rake (10.5.0)
     rdoc (6.0.4)
     rspec (3.8.0)
@@ -100,6 +105,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
+  httplog
   pry
   rake (~> 10.0)
   rdoc (~> 6.0)

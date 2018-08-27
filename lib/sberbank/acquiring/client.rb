@@ -2,8 +2,8 @@ require 'dry-initializer'
 require 'dry-types'
 
 require 'faraday'
-require 'acquiring/middleware'
-require 'acquiring/utils/parameters'
+require 'sberbank/acquiring/middleware'
+# require 'sberbank/acquiring/utils/parameters'
 
 begin
   require 'httplog'
@@ -13,10 +13,10 @@ end
 
 module Sberbank
   module Acquiring
-    module Client
+    class Client
       extend Dry::Initializer
 
-      option  :api_url
+      option  :api_url, default: -> { 'https://3dsec.sberbank.ru' }
       option  :api_username
       option  :api_password
 
@@ -44,7 +44,7 @@ module Sberbank
 
       def self.resources
         {
-          orders:OrderResource,
+          orders: OrderResource
         }
       end
 
@@ -58,10 +58,10 @@ module Sberbank
           },
           :headers => {
             :content_type => 'application/json'
-          },
-          :request => {
-            :params_encoder => AviaCenterPlane::NestedParamsEncoder
           }
+          # :request => {
+          #   :params_encoder => AviaCenterPlane::NestedParamsEncoder
+          # }
         }
       end
     end
