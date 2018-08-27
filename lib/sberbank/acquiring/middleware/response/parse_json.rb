@@ -22,7 +22,8 @@ module Sberbank
         end
 
         def parse(body)
-          JSON.parse(body, symbolize_names: true)
+          parsed_body = JSON.parse(body, symbolize_names: true)
+          parsed_body.transform_keys { |key| key.to_s.underscore.to_sym }
         end
 
         def error(code)

@@ -19,6 +19,36 @@ module Sberbank
         response = request(path, result.output)
         @mapper.extract_single(response)
       end
+
+      def cancel(params)
+        path = '/payment/rest/reverse.do'
+
+        result = OrderCancelSchema.(params)
+        params_validation_error!(result)  if result.failure?
+
+        response = request(path, result.output)
+        @mapper.extract_single(response)
+      end
+
+      def refund(params)
+        path = '/payment/rest/refund.do'
+
+        result = OrderRefundSchema.(params)
+        params_validation_error!(result)  if result.failure?
+
+        response = request(path, result.output)
+        @mapper.extract_single(response)
+      end
+
+      def get_status(params)
+        path = '/payment/rest/getOrderStatus.do'
+
+        result = OrderGetStatusSchema.(params)
+        params_validation_error!(result)  if result.failure?
+
+        response = request(path, result.output)
+        @mapper.extract_single(response)
+      end
     end
   end
 end
