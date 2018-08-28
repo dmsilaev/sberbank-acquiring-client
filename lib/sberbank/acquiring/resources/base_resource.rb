@@ -14,7 +14,7 @@ module Sberbank
       def request(path, params)
         connection.get do |req|
           req.path = path
-          req.params.merge! params.map { |k, v| [k.to_s.camelize(:lower).to_sym, v] }.to_h
+          req.params.merge! params.deep_transform_keys { |key| key.to_s.camelize(:lower).to_sym }
         end.env.body
       end
 
