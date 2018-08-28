@@ -22,7 +22,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = Sberbank::Acquiring::Client.new(
+  api_username: '%USERNAME%',
+  api_password: '%PASSWORD%'
+)
+
+client.orders.register(
+  order_number: '%NUMBER%',
+  amount: '%AMOUNT%',
+  return_url: '%RETURN_URL%'
+)
+```
 
 ## Development
 
