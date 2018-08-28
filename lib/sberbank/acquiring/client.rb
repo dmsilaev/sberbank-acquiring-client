@@ -23,7 +23,6 @@ module Sberbank
       def connection
         @faraday ||= Faraday.new(connection_options) do |conn|
           conn.response :error
-          conn.response :flatten
           conn.response :json
           conn.adapter Faraday.default_adapter
         end
