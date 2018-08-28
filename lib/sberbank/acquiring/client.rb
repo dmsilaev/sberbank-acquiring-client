@@ -3,7 +3,6 @@ require 'dry-types'
 
 require 'faraday'
 require 'sberbank/acquiring/middleware'
-# require 'sberbank/acquiring/utils/parameters'
 
 begin
   require 'httplog'
@@ -58,9 +57,6 @@ module Sberbank
           :headers => {
             :content_type => 'application/json'
           }
-          # :request => {
-          #   :params_encoder => AviaCenterPlane::NestedParamsEncoder
-          # }
         }
       end
     end
