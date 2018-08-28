@@ -22,8 +22,9 @@ module Sberbank
         end
 
         def parse(body)
-          parsed_body = JSON.parse(body)
-          parsed_body.deep_transform_keys { |key| key.underscore.to_sym }
+          JSON.parse(body)
+              .deep_transform_keys(&:underscore)
+              .with_indifferent_access
         end
 
         def error(code)
