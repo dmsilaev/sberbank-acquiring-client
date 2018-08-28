@@ -7,10 +7,6 @@ module Sberbank
     end
 
     class BaseSchema < Dry::Validation::Schema
-      # configure do |config|
-      #   config.messages_file = '/my/app/config/locales/en.yml'
-      #   config.messages = :i18n
-      # end
     end
 
     class BaseForm < BaseSchema

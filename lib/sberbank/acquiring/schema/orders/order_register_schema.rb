@@ -1,4 +1,4 @@
-require_relative 'base_schema'
+require_relative '../base_schema'
 
 module Sberbank
   module Acquiring
@@ -18,21 +18,6 @@ module Sberbank
       optional(:expiration_date).filled(:str?)
       optional(:binding_id).filled(:str?)
       optional(:features).filled(:str?)
-    end
-
-    OrderCancelSchema = Dry::Validation.Schema(BaseSchema) do
-      required(:order_id).filled(:str?)
-      optional(:language).filled(:str?)
-    end
-
-    OrderRefundSchema = Dry::Validation.Schema(BaseSchema) do
-      required(:order_id).filled(:str?)
-      required(:amount).filled(:str?)
-    end
-
-    OrderGetStatusSchema = Dry::Validation.Schema(BaseSchema) do
-      required(:order_id).filled(:str?)
-      required(:language).filled(:str?)
     end
   end
 end

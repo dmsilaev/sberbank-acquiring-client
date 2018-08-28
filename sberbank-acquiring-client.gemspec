@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr",        "~> 4.0"
   spec.add_development_dependency "webmock",    "~> 3.1"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "httplog"
 
   spec.add_dependency "faraday"
   spec.add_dependency "activesupport"

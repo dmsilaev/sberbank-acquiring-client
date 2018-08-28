@@ -1,5 +1,6 @@
 require 'dry-initializer'
 require 'dry-types'
+require 'active_support/inflector'
 
 module Sberbank
   module Acquiring
@@ -13,20 +14,13 @@ module Sberbank
       def request(path, params)
         connection.get do |req|
           req.path = path
-          req.params.merge! params.map { |k, v| [camelize(k.to_s), v] }.to_h
+          req.params.merge! params.map { |k, v| [k.to_s.camelize(:lower).to_sym, v] }.to_h
         end.env.body
       end
 
       def params_validation_error!(result)
         messages = result.messages(full: true).values.flatten
         raise ValidationError.new(:code => 422, :messages => messages)
-      end
-
-      private
-
-      def camelize(str)
-        str.split('_')
-           .map.with_index { |word, i| i.zero? ? word : word.capitalize }.join
       end
     end
   end

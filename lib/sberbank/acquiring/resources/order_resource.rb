@@ -1,5 +1,8 @@
 require_relative './base_resource'
-require_relative '../schema/order_schema'
+require_relative '../schema/orders/order_cancel_schema'
+require_relative '../schema/orders/order_get_status_schema'
+require_relative '../schema/orders/order_refund_schema'
+require_relative '../schema/orders/order_register_schema'
 require_relative '../mappings/order_mapping'
 
 module Sberbank
